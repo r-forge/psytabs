@@ -12,8 +12,8 @@ Psytabs produces well-formatted tables in .rtf or .html, which largely conform t
 \tabular{ll}{
 Package: \tab psytabs\cr
 Type: \tab Package\cr
-Version: \tab 0.5\cr
-Date: \tab 2012-12-28\cr
+Version: \tab 0.5-1\cr
+Date: \tab 2013-01-12\cr
 License: \tab GPL-2\cr
 }
 }

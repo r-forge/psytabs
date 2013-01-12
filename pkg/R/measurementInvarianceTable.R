@@ -49,6 +49,7 @@ function (measurement.invariance) {
     table <- colwise(asNumeric)(table)
     table[,c(1, 3, 10, 11)] <- round(table[,c(1, 3, 10, 11)], 1)
     table[,c(5, 6, 7, 8, 9)] <- round(table[,c(5, 6, 7, 8, 9)], 3)
+    names(table) <- c("chi2", "df", "Dchi2", "Ddf", "Dpval", "cfi", "Dcfi", "rmsea", "Drmsea", "bic", "Dbic")
       
   } else { #Scaled!
     out.configural <- fitMeasures(measurement.invariance$fit.configural, c("chisq", "df.scaled", "cfi.scaled", "rmsea.scaled", "bic", "chisq.scaled"))
@@ -102,7 +103,14 @@ function (measurement.invariance) {
     table <- colwise(asNumeric)(table)
     table[,c(1, 3, 10, 11)] <- round(table[,c(1, 3, 10, 11)], 1)
     table[,c(5, 6, 7, 8, 9)] <- round(table[,c(5, 6, 7, 8, 9)], 3)
+    names(table) <- c("chi2S", "df", "Dchi2S", "Ddf", "Dpval", "cfi", "Dcfi", "rmsea", "Drmsea", "bic", "Dbic")
     
+  }
+  
+  if(dim(table)[1] > 4) {
+    rownames(table) <- c("Configural", "Metric", "Scalar", "Residual", "Mean") 
+  } else {
+    rownames(table) <- c("Configural", "Metric", "Scalar", "Mean")
   }
   
   table
