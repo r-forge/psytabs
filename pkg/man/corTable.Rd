@@ -9,7 +9,7 @@ Produces a simple correlation matrix table.
 }
 
 \usage{
-corTable(data, use = "pairwise", method = "pearson", round = 2, significance = NA, sd = FALSE)
+corTable(data, use = "pairwise", method = "pearson", round = 2, significance = NA, sd = FALSE, mean.sd.cols = FALSE)
 }
 
 \arguments{
@@ -31,6 +31,9 @@ corTable(data, use = "pairwise", method = "pearson", round = 2, significance = N
   \item{sd}{
   logical value that toggles Whether the standard deviation should be displayed in the diagonal.
   }
+  \item{mean.sd.cols}{
+  logical value that toggles Whether additional mean and standard columns should be included in the table.
+  }
 }
 
 \value{
@@ -46,7 +49,8 @@ corTable(myData[,1:4], use = "complete")
 corTable(myData[,1:4], significance = "stars")
 corTable(myData[,1:4], significance = c("stars", "p-values"))
 corTable(myData[,1:4], round = 4)
-(cor.tab <- corTable(myData[,1:4], significance = "stars", sd=TRUE))
+corTable(myData[,1:4], mean.sd.cols = TRUE)
+(cor.tab <- corTable(myData[,1:4], significance = "stars", mean.sd.cols = TRUE))
 
 #saveTable(cor.tab, "corTab.rtf")
 }
